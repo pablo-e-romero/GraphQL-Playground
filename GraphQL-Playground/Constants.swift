@@ -8,6 +8,6 @@
 import Foundation
 
 enum Constants {
-    static let backendURL = URL(string: "http://localhost:63482/")!
-
+    static let backendStringURL = "http://localhost:63482/"
+    static let backendURL = URL(string: Self.backendStringURL)!
 }
