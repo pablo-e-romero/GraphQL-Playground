@@ -17,18 +17,15 @@ final class ApolloWrapper {
         client = .init(url: Constants.backendURL)
     }
 
-    func fetch<Query: GraphQLQuery, Item>(
-        query: Query,
-        mapper: @escaping (GraphQLResult<Query.Data>) -> Item,
-        completion: @escaping (Result<Item, Error>)->Void) {
-            client.fetch(query: query) { result in
-                switch result {
-                case let .success(graphQLResult):
-                    completion(.success(mapper(graphQLResult)))
-                case let .failure(error):
-                    completion(.failure(error))
-                }
+    func fetchFilms(completion: @escaping (Result<[AllFilmsQuery.Data.AllFilm.Film], Error>)->Void) {
+        client.fetch(query: AllFilmsQuery()) { result in
+            let mappedResult: Result<[AllFilmsQuery.Data.AllFilm.Film], Error> = result.map { graphQLResult in
+                guard let films = graphQLResult.data?.allFilms?.films else { return [] }
+                return films.compactMap({ $0 })
             }
+
+            completion(mappedResult)
         }
+    }
 
 }

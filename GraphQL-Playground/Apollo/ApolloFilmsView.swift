@@ -16,12 +16,9 @@ struct ApolloFilmsView: View {
         }
         .navigationTitle("Films")
         .onAppear {
-            ApolloWrapper.shared.fetch(
-                query: AllFilmsQuery()) { graphQLResult in
-                    return graphQLResult.data?.allFilms?.films?.compactMap({ $0 })
-                } completion: { result in
-                    self.films = (try? result.get()) ?? []
-                }
+            ApolloWrapper.shared.fetchFilms { result in
+                self.films = (try? result.get()) ?? []
+            }
         }
     }
 }

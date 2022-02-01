@@ -3,4 +3,22 @@
    uuid = "AB5E3610-C524-4E8A-92AF-6C339A7C3C68"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BCBD31CE-32F8-44A5-8530-1418A1E087A1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GraphQL-Playground/SwiftGraphQL/SwiftGraphQLAPI.swift"
+            startingColumnNumber = "278"
+            endingColumnNumber = "292"
+            startingLineNumber = "8551"
+            endingLineNumber = "8551"
+            landmarkName = "on(film:species:planet:person:starship:vehicle:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
